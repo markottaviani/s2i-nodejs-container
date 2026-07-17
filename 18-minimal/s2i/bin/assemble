@@ -99,7 +99,7 @@ else
 
 	# Prefer npm ci for reproducible installs; fall back unless NPM_CI_STRICT=true
 	echo "---> Installing dependencies with npm ci"
-	if ! npm ci; then
+	if ! NODE_ENV=development npm ci; then
 		if [ "${NPM_CI_STRICT}" == "true" ]; then
 			echo "---> ERROR: npm ci failed and NPM_CI_STRICT=true; not falling back to npm install" >&2
 			exit 1
